@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <form>
+        <label for="state">Select state:</label>
+        <select id="state" onchange="changeState()">
+
+        </select>
+        <br>
+        <br>
+        <label for="district">Select district:</label>
+        <select id="district" onchange="changeDistrict()">
+
+        </select>
+        <br>
+        <br>
+        <label for="city">Select city:</label>
+        <select id="city" onchange="changeCity()">
+
+        </select>
+    </form>
+    <br>
+
+
+
+
+    <script>
+        let state = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Nagaland", "Maharashtra"];
+        let district = [{ state: "Maharashtra", district: "Pune" }, { state: "Maharashtra", district: "Mumbai" }, { state: "Maharashtra", district: "Latur" }, { state: "Maharashtra", district: "Ahmadnagar" }];
+        let city = [{ district: "Ahmadnagar", city: "Rahata" }, { district: "Ahmadnagar", city: "shirdi" }, { district: "Ahmadnagar", city: "Kopargoan" }, { district: "Ahmadnagar", city: "Rahuri" },
+        { district: "Pune", city: "Akurdi" }, { district: "Pune", city: "Kotharud" },];
+        function changeState() {
+            const value = document.getElementById("state").value;
+            console.log(value);
+            document.getElementById("district").innerHTML = `<option >Select </option>`;
+            document.getElementById("city").innerHTML = `<option >Select </option>`;
+            for (let i = 0; i < district.length; i++) {
+                if (district[i]?.state == value) {
+                    const x = document.getElementById("district");
+                    let option = document.createElement("option");
+                    option.text = district[i]?.district;
+                    option.value = district[i]?.district;
+                    x.add(option);
+                }
+            }
+        }
+        function changeDistrict() {
+            const value = document.getElementById("district").value;
+            console.log(value);
+            document.getElementById("city").innerHTML = `<option >Select </option>`;
+            for (let i = 0; i < city.length; i++) {
+                if (city[i]?.district == value) {
+                    const x = document.getElementById("city");
+                    let option = document.createElement("option");
+                    option.text = city[i]?.city;
+                    option.value = city[i]?.city;
+                    x.add(option);
+                }
+            }
+        }
+        function changeCity() {
+            const value = document.getElementById("city").value;
+            console.log(value);
+        }
+        function setState() {
+            document.getElementById("district").innerHTML = `<option >Select </option>`;
+            document.getElementById("city").innerHTML = `<option >Select </option>`;
+            for (let i = 0; i < state.length; i++) {
+                var x = document.getElementById("state");
+                var option = document.createElement("option");
+                option.text = state[i];
+                option.value = state[i];
+                x.add(option);
+            }
+        }
+        setState()
+    </script>
+
+</body>
+
+</html>
