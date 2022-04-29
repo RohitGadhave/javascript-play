@@ -5,12 +5,13 @@ require('./Array/array');
 // require('./Common/Assignment_Destructuring');
 // require('./Common/SpreadOperatorAndRestParameters');
 // require('./Functions/functions');
-
+require('./File_Handling/main');
 
 let arrayOfLetters = ['a','b','c','d','e','f'];
 const anotherArrayOfLetters = arrayOfLetters;
 arrayOfLetters = [];
-console.log(anotherArrayOfLetters,arrayOfLetters);//['a','b','c','d','e','f']
+// console.log(anotherArrayOfLetters,arrayOfLetters);
+//['a','b','c','d','e','f']
 
 /*
 When we carry out the above (containing arrayOfLetters = []) you create a new array and break the old reference. Thus, anotherArrayOfLetters has no effect on it since it is still pointing to the old array.
@@ -46,5 +47,5 @@ function getUniqueValues(arrOfNum){
   }
   return tempArray;
 }
-console.log(getUniqueValues(arrOfNum)); // [1, 2, 4, 5, 6]
+// console.log(getUniqueValues(arrOfNum)); // [1, 2, 4, 5, 6]
 
